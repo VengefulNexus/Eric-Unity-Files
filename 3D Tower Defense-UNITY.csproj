@@ -87,14 +87,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BuildingData.cs" />
     <Compile Include="Assets\EncryptionScript.cs" />
     <Compile Include="Assets\HUD_Data_Holder.cs" />
     <Compile Include="Assets\RightHUDSelector.cs" />
     <Compile Include="Assets\Weapon_Charge_Slider_Script.cs" />
     <Compile Include="Assets\buildingHealthScript.cs" />
+    <Compile Include="Assets\enemyData.cs" />
     <Compile Include="Assets\enemyMovement.cs" />
     <Compile Include="Assets\enemyTargetManager.cs" />
-    <Compile Include="Assets\moveTo.cs" />
     <Compile Include="Assets\playerHealthSliderScript.cs" />
     <Compile Include="Assets\weaponRechargeSlider.cs" />
   </ItemGroup>
