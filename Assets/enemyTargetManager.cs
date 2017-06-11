@@ -57,6 +57,12 @@ public class enemyTargetManager : MonoBehaviour {
 
     public static void updateMainTargets(GameObject destroyedTarget)     //Call this upon the destruction of any main target (i.e. base/quarry/factory/etc)
     {
+        if (destroyedTarget.name == "PlayerBase")
+        {
+            Time.timeScale = 0;
+            print("GAME OVER");
+        }
+
         int targetIndex = Array.IndexOf(originalTargets, destroyedTarget);      //finds index of the destroyed target to determine corresponding index of the gameobject's probability used in getNewTarget()
         float destroyedProbability = currentProbabilities[targetIndex];         //saves the probability of the destroyed target since the arrays are in the same order
         float newTotal = 0.0f;                                                  //create a variable to hold a total new probability for scaling new probabilities correctly
@@ -80,7 +86,6 @@ public class enemyTargetManager : MonoBehaviour {
             }
         }
         newProbabilities = currentProbabilities;        //copies the currentprobabilities into newprobabilities for temp use if updateMainTargets is called again
-
         foreach (GameObject Enemy in managedEnemies)        //iterate through each enemy this script manages
         {
             if (Enemy.GetComponent<enemyMovement>().target == destroyedTarget.GetComponent<Transform>())  //if the target of this enemy is the destroyed target,

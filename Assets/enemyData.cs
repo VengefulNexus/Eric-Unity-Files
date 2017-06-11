@@ -31,6 +31,7 @@ public class enemyData : MonoBehaviour {
         {
             if (Vector3.Distance(this.transform.position, Target.transform.position) < enemyAttackDistance)     //if the building is within enemyAttackDistance
             {
+                print("attack");
                 this.attack(Target);                //call the attack method of this enemy
             }
         }
