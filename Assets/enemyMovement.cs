@@ -5,12 +5,11 @@ using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour {
     public Transform target;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public enemyData DataHolder;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();       //set the NavMeshAgent component to a variable
         agent.acceleration = DataHolder.enemyAcceleration;      //sets the NavMeshAgent's acceleration, speed, and angular speed based on the values in the enemy's enemyData
         agent.speed = DataHolder.enemySpeed;
         agent.angularSpeed = DataHolder.enemyTurnSpeed;
@@ -18,9 +17,11 @@ public class enemyMovement : MonoBehaviour {
 
     void Update()
     { 
-        if (target.position != agent.destination)       //if the target the enemy was given is not the same as the NavMeshAgent's target,
-            {
-                agent.destination = target.position;    //set the NavMeshAgent's target to the position of the enemy's target
-            }
+
+    }
+
+    public void updateNavAgent()
+    {
+        agent.destination = target.position;    //set the NavMeshAgent's target to the position of the enemy's target
     }
 }

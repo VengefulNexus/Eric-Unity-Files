@@ -59,7 +59,7 @@ public class enemyTargetManager : MonoBehaviour {
     {
         if (destroyedTarget.name == "PlayerBase")
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             print("GAME OVER");
         }
 
@@ -91,6 +91,7 @@ public class enemyTargetManager : MonoBehaviour {
             if (Enemy.GetComponent<enemyMovement>().target == destroyedTarget.GetComponent<Transform>())  //if the target of this enemy is the destroyed target,
             {
                 Enemy.GetComponent<enemyMovement>().target = getNewTarget();        //assigns a new target to the enemy
+                Enemy.GetComponent<enemyMovement>().updateNavAgent();
             }
         }
 
@@ -105,6 +106,7 @@ public class enemyTargetManager : MonoBehaviour {
                 managedEnemies.AddLast(Enemy);                          //add the enemy to the linked list
                 Enemy.GetComponent<enemyData>().Managed = true;         //set the managed property of the enemy to true
                 Enemy.GetComponent<enemyMovement>().target = getNewTarget();    //assign a target to the enemy
+                Enemy.GetComponent<enemyMovement>().updateNavAgent();
             }
         }
     }
