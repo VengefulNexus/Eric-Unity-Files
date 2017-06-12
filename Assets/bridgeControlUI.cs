@@ -7,6 +7,9 @@ public class bridgeControlUI : MonoBehaviour {
     public Transform playerTransform;
     public Transform buildingTransform;
     public GameObject UIPanel;
+    public bridgeControl Bridge;
+
+
     float xDistance;
     float yDistance;
 
@@ -14,43 +17,42 @@ public class bridgeControlUI : MonoBehaviour {
 
     float angle = 0.0f;
     bool playerInRange = false;
-
-    bool runOnAnim = false;
+    
 	// Use this for initialization
 	void Start () {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-	}
+        UIPanel.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-
-
-
         if (Vector3.Distance(playerTransform.position, buildingTransform.position) < activeDistance)
         {
             playerInRange = true;
+            UIPanel.GetComponent<Animator>().Play("UIPanelAnimOn");
         } else
         {
             playerInRange = false;
+            UIPanel.GetComponent<Animator>().Play("UIPanelAnimOff");
         }
         if (playerInRange)
         {
-            if (!UIPanel.activeSelf)
-            {
-                UIPanel.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
-                UIPanel.SetActive(true);
-                runOnAnim = true;
-            }
             xDistance = buildingUIPanelPivot.position[0] - playerTransform.position[0];
             yDistance = buildingUIPanelPivot.position[2] - playerTransform.position[2];
             angle = -Mathf.Atan2(yDistance, xDistance) * Mathf.Rad2Deg;
             buildingUIPanelPivot.eulerAngles = new Vector3(0.0f, angle, 0.0f);
-        } else
-        {
-            if (UIPanel.activeSelf)
+
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                UIPanel.SetActive(false);
+                if (Bridge.bridgeStatus)
+                {
+                    Bridge.setBridgeDown();
+                    //Set button green or whatever
+                } else
+                {
+                    Bridge.setBridgeUp();
+                }
             }
         }
 	}

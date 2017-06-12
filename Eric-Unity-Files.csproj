@@ -92,6 +92,7 @@
     <Compile Include="Assets\HUD_Data_Holder.cs" />
     <Compile Include="Assets\RightHUDSelector.cs" />
     <Compile Include="Assets\Weapon_Charge_Slider_Script.cs" />
+    <Compile Include="Assets\animationDone.cs" />
     <Compile Include="Assets\bridgeControl.cs" />
     <Compile Include="Assets\bridgeControlUI.cs" />
     <Compile Include="Assets\buildingHealthScript.cs" />
