@@ -9,6 +9,8 @@ public class bridgeControlUI : MonoBehaviour {
     public GameObject UIPanel;
     public bridgeControl Bridge;
 
+    public MeshRenderer UpButton;
+    public MeshRenderer DownButton;
 
     float xDistance;
     float yDistance;
@@ -42,16 +44,18 @@ public class bridgeControlUI : MonoBehaviour {
             angle = -Mathf.Atan2(yDistance, xDistance) * Mathf.Rad2Deg;
             buildingUIPanelPivot.eulerAngles = new Vector3(0.0f, angle, 0.0f);
 
-
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (Bridge.bridgeStatus)
                 {
                     Bridge.setBridgeDown();
-                    //Set button green or whatever
+                    UpButton.material.color = new Color32(80, 80, 80, 0);
+
                 } else
                 {
                     Bridge.setBridgeUp();
+                    DownButton.material.color = new Color32(80, 80, 80, 0);
+
                 }
             }
         }
