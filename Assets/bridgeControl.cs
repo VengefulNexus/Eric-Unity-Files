@@ -9,9 +9,14 @@ public class bridgeControl : MonoBehaviour {
 
     public bool bridgeStatus;
 
+    public MeshRenderer bottomButton; //for init
+
     // Use this for initialization
     void Start () {
-        setBridgeDown();
+
+        bridgeAnimator.SetBool("BridgeUp", false);
+
+        bottomButton.material.color = new Color(0.0f, 0.7843f, 0.0f);
     }
 
     // Update is called once per frame

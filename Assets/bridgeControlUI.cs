@@ -9,30 +9,27 @@ public class bridgeControlUI : MonoBehaviour {
     public GameObject UIPanel;
     public bridgeControl Bridge;
 
-    public MeshRenderer UpButton;
-    public MeshRenderer DownButton;
-
     float xDistance;
     float yDistance;
 
     float activeDistance = 20.0f;
 
     float angle = 0.0f;
-    bool playerInRange = false;
+    bool playerInRange = true;
     
 	// Use this for initialization
 	void Start () {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        UIPanel.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
+        UIPanel.transform.localScale = new Vector3(0.001f, 0.005f, 0.001f);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Vector3.Distance(playerTransform.position, buildingTransform.position) < activeDistance)
+        if (Vector3.Distance(playerTransform.position, buildingTransform.position) < activeDistance && !playerInRange)
         {
             playerInRange = true;
             UIPanel.GetComponent<Animator>().Play("UIPanelAnimOn");
-        } else
+        } else if (Vector3.Distance(playerTransform.position, buildingTransform.position) > activeDistance && playerInRange)
         {
             playerInRange = false;
             UIPanel.GetComponent<Animator>().Play("UIPanelAnimOff");
@@ -49,12 +46,10 @@ public class bridgeControlUI : MonoBehaviour {
                 if (Bridge.bridgeStatus)
                 {
                     Bridge.setBridgeDown();
-                    UpButton.material.color = new Color32(80, 80, 80, 0);
 
                 } else
                 {
                     Bridge.setBridgeUp();
-                    DownButton.material.color = new Color32(80, 80, 80, 0);
 
                 }
             }
