@@ -87,20 +87,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BuildingData.cs" />
+    <Compile Include="Assets\Building Scripts\BuildingData.cs" />
+    <Compile Include="Assets\Building Scripts\bridgeControl.cs" />
+    <Compile Include="Assets\Building Scripts\bridgeControlUI.cs" />
+    <Compile Include="Assets\Building Scripts\buildingHealthScript.cs" />
     <Compile Include="Assets\EncryptionScript.cs" />
-    <Compile Include="Assets\HUD_Data_Holder.cs" />
-    <Compile Include="Assets\RightHUDSelector.cs" />
-    <Compile Include="Assets\Weapon_Charge_Slider_Script.cs" />
-    <Compile Include="Assets\bridgeControl.cs" />
-    <Compile Include="Assets\bridgeControlUI.cs" />
-    <Compile Include="Assets\buildingHealthScript.cs" />
-    <Compile Include="Assets\enemyData.cs" />
-    <Compile Include="Assets\enemyMovement.cs" />
-    <Compile Include="Assets\enemyTargetManager.cs" />
-    <Compile Include="Assets\playerHealthSliderScript.cs" />
-    <Compile Include="Assets\playerMovementTest.cs" />
-    <Compile Include="Assets\weaponRechargeSlider.cs" />
+    <Compile Include="Assets\Enemy Scripts\enemyData.cs" />
+    <Compile Include="Assets\Enemy Scripts\enemyMovement.cs" />
+    <Compile Include="Assets\Enemy Scripts\enemyTargetManager.cs" />
+    <Compile Include="Assets\Player Scripts\HUD_Data_Holder.cs" />
+    <Compile Include="Assets\Player Scripts\RightHUDSelector.cs" />
+    <Compile Include="Assets\Player Scripts\Weapon_Charge_Slider_Script.cs" />
+    <Compile Include="Assets\Player Scripts\playerHealthSliderScript.cs" />
+    <Compile Include="Assets\Player Scripts\playerMovementTest.cs" />
+    <Compile Include="Assets\Player Scripts\weaponRechargeSlider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
