@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/HUD Scene.unity
+- path: Assets/Test Doppler Effect.unity
   isLoaded: 1
   isActive: 1

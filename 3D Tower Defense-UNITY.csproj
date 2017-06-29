@@ -101,6 +101,7 @@
     <Compile Include="Assets\Player Scripts\playerHealthSliderScript.cs" />
     <Compile Include="Assets\Player Scripts\playerMovementTest.cs" />
     <Compile Include="Assets\Player Scripts\weaponRechargeSlider.cs" />
+    <Compile Include="Assets\TestDoppler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
